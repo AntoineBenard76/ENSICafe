@@ -13,8 +13,8 @@
             </li>
             <li><a href="profil.php">Profil</a>
                 <ul>
-                    <li><a href="parametre.php">Paramètres</a></li>
-                    <li><a href="deconnection.php">Déconnection</a></li>
+                    <li><a href="parametres.php">Paramètres</a></li>
+                    <li><a href="deconnexion.php">Déconnexion</a></li>
                 </ul>
             </li>
             <li><a href="club.php">Clubs</a>
