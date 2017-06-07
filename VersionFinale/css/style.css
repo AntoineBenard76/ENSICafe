@@ -20,6 +20,15 @@ body {
     background: #f7f3d3;
 }
 
+/* ---------- Alert ---------- */
+
+.alert {
+    position: fixed;
+    top: 60px;
+    left: 0px;
+    width: 100%;
+}
+
 /* ---------- Navigation Bar ---------- */
 
 .navbar {
