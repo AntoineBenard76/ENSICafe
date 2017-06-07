@@ -89,6 +89,19 @@
             reader.readAsDataURL(file);
             });  
         });
+
+        // reception.php : cache et affiche les messages en fonction de la personne sélectionnée
+        $(document).ready(function() {
+            $('#msg-wrap').hide();
+            $('.conversation').click(function() {
+                var id = this.id.substring(5); // Récupère les 5 premiers caractères de l'id qui sont menu_ et numero de l'id (menu_1,...)
+                $(this).siblings('.conversation').removeClass('active');
+                $(this).addClass('active');
+                $('[id^=message_]').hide();
+                $('#message_'+id).show();
+                $('#msg-wrap').show();
+            });  
+        });
  </script>
 
 </body>

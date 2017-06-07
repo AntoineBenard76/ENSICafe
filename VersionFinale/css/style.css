@@ -348,7 +348,6 @@ body {
 
 .panel-publication > .panel-collapse > .panel-body > .publication-msg > textarea {
     margin-bottom: 10px;
-
 }
 
 .panel-publication > .panel-collapse > .panel-body > .publication-msg > button {
@@ -702,4 +701,46 @@ body {
 
 .settings-avatar > .media-left > img {
     border: 5px solid rgba(255, 255, 255, 0.5);
+}
+
+.settings-buttons {
+    display: inline;
+}
+
+.settings-buttons a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+/* ----------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+
+
+/* ---------- reception.php ---------- */
+
+.panel-reception {
+    background-color: #FFFFFF;
+    border: 1px solid #E8DE97;
+}
+
+.conversation-wrap div.active {
+    background-color: #F7F3D3;
+    padding: 5px;
+    border: 1px solid #E8DE97;
+    border-radius: 5px;
+}
+
+.conversation-wrap .conversation .pull-left img,
+.message-wrap .msg .pull-left img {
+    width: 50px;
+    height: 50px;
+}
+
+.message-wrap > form > textarea {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.message-wrap > form > button {
+    margin-right: 8px;
 }

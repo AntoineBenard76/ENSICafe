@@ -123,47 +123,57 @@
 
                 <!-- Mail -->
                 <form>
-                <div class="form-group">
-					<label class="col-md-4 control-label" for="newmail">Adresse mail</label>
-					<div class="col-md-4">
-						<input type="email" name="newmail" placeholder="Mail" class="form-control input-md" value="<?= $user['mail']?>"/>
-					</div>
-				</div>
-                <br><br>
-                <!-- Password -->
-				<div class="form-group">
-					<label class="col-md-4 control-label" for="newmdp1">Nouveau mot de passe</label>
-					<div class="col-md-4">
-						<input type="password" name="newmdp1" placeholder="Nouveau mot de passe" class="form-control input-md">
-				    </div>
-                </div>
-                <br><br>
-				<div class="form-group">
-					<label class="col-md-4 control-label" for="newmdp2">Confirmer le nouveau mot de passe</label>
-					<div class="col-md-4">
-						<input type="password" name="newmdp2" placeholder="Confirmer le mot de passe" class="form-control input-md">
-					</div>
-				</div>
-                <br><br>
-                <div class="form-group">
-					<label class="col-md-4 control-label" for="newspecialite">Rentrez votre spécialité :</label>
-					<div class="col-md-4">
-						<select class="form-control" name="newspecialite">
-                            <option>Informatique &amp; Réseaux</option>
-                            <option>Automatiques et Systèmes embarqués</option>
-                            <option>Mécanique</option>
-                            <option>Textile &amp; Fibres</option>
-                            <option>FIP</option>
-                            <option>Autre</option>
-                        </select>
-					</div>
-				</div>
-                <br><br>
-                <!-- /#password -->
-                <button class="[ btn btn-info ] settings-apply" type="submit">Mettre à jour le profil</button>
+                    <div class="form-group">
+    					<label class="col-md-4 control-label" for="newmail">Adresse mail</label>
+    					<div class="col-md-4">
+    						<input type="email" name="newmail" placeholder="Mail" class="form-control input-md" value="<?= $user['mail']?>"/>
+    					</div>
+    				</div>
+                    <br><br>
+                    <!-- /#mail -->
+
+                    <!-- Password -->
+    				<div class="form-group">
+    					<label class="col-md-4 control-label" for="newmdp1">Nouveau mot de passe</label>
+    					<div class="col-md-4">
+    						<input type="password" name="newmdp1" placeholder="Nouveau mot de passe" class="form-control input-md">
+    				    </div>
+                    </div>
+                    <br><br>
+    				<div class="form-group">
+    					<label class="col-md-4 control-label" for="newmdp2">Confirmer le nouveau mot de passe</label>
+    					<div class="col-md-4">
+    						<input type="password" name="newmdp2" placeholder="Confirmer le mot de passe" class="form-control input-md">
+    					</div>
+    				</div>
+                    <br><br>
+                    <!-- /#password -->
+
+                    <!-- Spécialité -->
+                    <div class="form-group">
+    					<label class="col-md-4 control-label" for="newspecialite">Rentrez votre spécialité :</label>
+    					<div class="col-md-4">
+    						<select class="form-control" name="newspecialite">
+                                <option>Informatique &amp; Réseaux</option>
+                                <option>Automatiques et Systèmes embarqués</option>
+                                <option>Mécanique</option>
+                                <option>Textile &amp; Fibres</option>
+                                <option>FIP</option>
+                                <option>Autre</option>
+                            </select>
+    					</div>
+    				</div>
+                    <br><br>
+                    <!-- /#spécialité -->
+
+                    <div class="settings-buttons">
+                        <button class="[ btn btn-info ]">
+                            <a href="profil.php?id=<?= $_SESSION['id'] ?>">Retour</a>
+                        </button>
+                    </div>
+                    <button class="[ btn btn-success ] settings-apply pull-right" type="submit">Mettre à jour le profil</button>
                 </form>
                 <?php if(isset($msg)) { echo $msg; } ?>
-                <a href="profil.php?id=<?= $_SESSION['id'] ?>"> Retour au profil </a>
 			</div>
 		</div>
 	</div>
