@@ -9,7 +9,13 @@
             <div id="sidebar-wrapper">
                 <ul class="sidebar-nav">
                     <li class="sidebar-brand">
-                        <a href="profil.php?id=<?= $_SESSION['id']?>">Profil</a>
+                        <a href="profil.php?id=<?= $_SESSION['id']?>">
+                            <!-- <img    class="img-circle" 
+                                    src="img/avatars/<PHP echo $userinfo['avatar']?>"
+                                    alt="img/avatars/<PHP echo $userinfo['avatar']?>"
+                                    style="width: 30px; height: 30px;"/> -->
+                            (Image) NOM Prénom
+                        </a>
                     </li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Blabla</a></li>
