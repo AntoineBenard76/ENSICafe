@@ -47,7 +47,9 @@
                 }
                 else
                 {
-                    $erreur = "Mauvais mail ou mot de passe !";
+                    ?><div class="alert alert-danger" role="alert" align="center">
+                        <span class="msg-alert">Mauvais mail ou mot de passe !</span>
+                      </div><?php ;
                 }
             }
             else 
