@@ -42,29 +42,53 @@
 
         // accueil.php : fait apparaître la fenêtre pour commenter (publication)
         $(function () {
-         $('.panel-custom > .panel-body > .pull-left > .input-placeholder, .panel-custom > .panel-comment > .panel-custom-textarea > button[type="reset"]').on('click', function(event) {
-            var $panel = $(this).closest('.panel-custom');
-            $comment = $panel.find('.panel-comment');
-            
-            $comment.find('.btn:first-child').addClass('disabled');
-            $comment.find('textarea').val('');
+             $('.panel-custom > .panel-body > .pull-left > .input-placeholder, .panel-custom > .panel-comment > .panel-custom-textarea > button[type="reset"]').on('click', function(event) {
+                var $panel = $(this).closest('.panel-custom');
+                $comment = $panel.find('.panel-comment');
+                
+                $comment.find('.btn:first-child').addClass('disabled');
+                $comment.find('textarea').val('');
 
-            $panel.toggleClass('panel-custom-show-comment');
+                $panel.toggleClass('panel-custom-show-comment');
 
-            if ($panel.hasClass('panel-custom-show-comment')) {
-                $comment.find('textarea').focus();
-            }
+                if ($panel.hasClass('panel-custom-show-comment')) {
+                    $comment.find('textarea').focus();
+                }
+            });
+
+             $('.panel-comment > .panel-custom-textarea > textarea').on('keyup', function(event) {
+                var $comment = $(this).closest('.panel-comment');
+
+                $comment.find('button[type="submit"]').addClass('disabled');
+                if ($(this).val().length >= 1) {
+                    $comment.find('button[type="submit"]').removeClass('disabled');
+                }
+            });
+
         });
 
-         $('.panel-comment > .panel-custom-textarea > textarea').on('keyup', function(event) {
-            var $comment = $(this).closest('.panel-comment');
+        // accueil.php + settings.php : upload de fichier
+        $(function() {
+        // "Annuler"
+        $('.preview-clear').click(function(){
+        $('.preview-filename').val("");
+        $('.preview-clear').hide();
+        $('.preview-input input:file').val("");
+        $(".preview-input-title").text("Browse"); 
+        }); 
 
-            $comment.find('button[type="submit"]').addClass('disabled');
-            if ($(this).val().length >= 1) {
-                $comment.find('button[type="submit"]').removeClass('disabled');
-            }
+        // Montre le nom du fichier à upload
+        $(".preview-input input:file").change(function (){     
+            var file = this.files[0];
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $(".preview-input-title").text("Change");
+                $(".preview-clear").show();
+                $(".preview-filename").val(file.name);
+            }  
+            reader.readAsDataURL(file);
+            });  
         });
-     });
  </script>
 
 </body>

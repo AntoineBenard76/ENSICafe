@@ -118,28 +118,33 @@
                     </div>
 				</div>
                 <!-- /#avatar -->
+
                 <br>
+
+                <!-- Mail -->
+                <form>
                 <div class="form-group">
 					<label class="col-md-4 control-label" for="newmail">Adresse mail</label>
 					<div class="col-md-4">
 						<input type="email" name="newmail" placeholder="Mail" class="form-control input-md" value="<?= $user['mail']?>"/>
 					</div>
 				</div>
+                <br><br>
                 <!-- Password -->
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="newmdp1">Nouveau mot de passe</label>
 					<div class="col-md-4">
 						<input type="password" name="newmdp1" placeholder="Nouveau mot de passe" class="form-control input-md">
-					</div><br><br>
-				</div>
-
+				    </div>
+                </div>
+                <br><br>
 				<div class="form-group">
 					<label class="col-md-4 control-label" for="newmdp2">Confirmer le nouveau mot de passe</label>
 					<div class="col-md-4">
 						<input type="password" name="newmdp2" placeholder="Confirmer le mot de passe" class="form-control input-md">
 					</div>
 				</div>
-                    
+                <br><br>
                 <div class="form-group">
 					<label class="col-md-4 control-label" for="newspecialite">Rentrez votre spécialité :</label>
 					<div class="col-md-4">
@@ -153,8 +158,8 @@
                         </select>
 					</div>
 				</div>
+                <br><br>
                 <!-- /#password -->
-                <br><br><br>
                 <button class="[ btn btn-info ] settings-apply" type="submit">Mettre à jour le profil</button>
                 </form>
                 <?php if(isset($msg)) { echo $msg; } ?>

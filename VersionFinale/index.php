@@ -85,8 +85,8 @@
 
                     <!-- Register -->
                     <div id="sectionB" class="tab-pane fade">
-                        <?php 
-if(isset($_POST['forminscription'])) {
+<?php 
+    if(isset($_POST['forminscription'])) {
         $nom = htmlspecialchars($_POST['nom']);
         $prenom = htmlspecialchars($_POST['prenom']);
         $specialite = htmlspecialchars($_POST['specialite']);

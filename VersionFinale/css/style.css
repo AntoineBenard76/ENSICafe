@@ -321,7 +321,7 @@ body {
     text-decoration: none;
 }
 
-.panel-publication .panel-body .preview .preview-input {
+.preview .preview-input {
     position: relative;
     overflow: hidden;
     margin: 0px;
@@ -330,7 +330,7 @@ body {
     border-color: #ccc;
 }
 
-.panel-publication .panel-body .preview .preview-input input[type=file] {
+.preview .preview-input input[type=file] {
     position: absolute;
     top: 0;
     right: 0;
@@ -342,7 +342,7 @@ body {
     filter: alpha(opacity=0);
 }
 
-.panel-publication .panel-body .preview .preview-input-title {
+.preview .preview-input-title {
     margin-left:2px;
 }
 
@@ -691,4 +691,15 @@ body {
     padding: 0px;
     min-height: 40px;
     border-bottom: 1px solid #eee;
+}
+
+
+/* ----------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+
+
+/* ---------- settings.php ---------- */
+
+.settings-avatar > .media-left > img {
+    border: 5px solid rgba(255, 255, 255, 0.5);
 }
