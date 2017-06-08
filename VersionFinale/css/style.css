@@ -354,10 +354,6 @@ body {
     margin-right: 8px;
 }
 
-.panel-publication > .panel-collapse > .panel-body > .publication-msg > .btn-group > .btn {
-    outline: none;
-}
-
 /* ---------- Panel Publications ---------- */
 
 .panel-custom {                             /* Post (fil d'actualité) */

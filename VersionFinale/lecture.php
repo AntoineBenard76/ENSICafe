@@ -1,7 +1,7 @@
 <?php
     session_start();
     $bdd = new PDO('mysql:host=127.0.0.1;dbname=espace_membre', 'root', '');
-    include('header.php');
+    include('php/header.php');
     if(isset($_SESSION['id']) AND !empty($_SESSION['id']))
     {
         if(isset($_GET['id']) AND !empty($_GET['id']))
@@ -46,5 +46,5 @@
             
         }
     }
-    include('footer.php');
+    include('php/footer.php');
 ?>

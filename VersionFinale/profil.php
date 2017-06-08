@@ -1,7 +1,7 @@
 <?php
     session_start();
     $bdd = new PDO('mysql:host=127.0.0.1;dbname=espace_membre', 'root', '');
-    include('header.php');
+    include('php/header.php');
 
     if(isset($_SESSION['id']) AND $_SESSION['id'] > 0)
     {
@@ -26,7 +26,7 @@
                      src="img/avatars/<?php echo $userinfo['avatar']?>" alt="img/avatars/<?php echo $userinfo['avatar']?>"/>
 			</div>
 			<div class="profile-title">
-				<span class="profile-name"><?php echo $userinfo['nom'];?>&nbsp;<?php echo $userinfo['prenom']; ?></span><br>
+				<span class="profile-name"><?php echo $userinfo['nom'];?>&nbsp;<?php echo $userinfo['prenom']; ?> </span><br>
 				<span class="label label-info">Etudiant</span>
 				<!--<span class="label label-danger">Griffeur</span>-->
 			</div>
@@ -42,23 +42,29 @@
 				</div>
 				<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel">
 					<div class="panel-body">
-						<a href="envoi.php"><button class="btn btn-primary" type="button"> Envoyer un message </button></a>&nbsp;
-                        <a href="settings.php"><button class="btn btn-primary" type="button"> Editer le profil </button></a>&nbsp;
+						<!--<a href="envoi.php"><button class="btn btn-primary" type="button"> Envoyer un message </button></a>&nbsp;-->
+                        <input class="btn btn-primary" type="button" value="Envoyer un message" onclick="javascript:location.href='envoi.php'"/>&nbsp;
+                        <!--<a href="settings.php"><button class="btn btn-primary" type="button"> Editer le profil </button></a>&nbsp;-->
+                        <input class="btn btn-primary" type="button" value="Editer le profil" onclick="javascript:location.href='settings.php'"/>
                         <?php
                             $prep = $bdd->prepare('SELECT * FROM messages WHERE id_destinataire = ? AND lu = 0');
                             $prep->execute(array($_SESSION['id']));
                             $notif = $prep->rowCount();
                             if($notif >= 1)
                             {
-                                ?><a href="reception.php"><button class="btn btn-primary" type="button">
+                                ?><!--<a href="reception.php"><button class="btn btn-primary" type="button">
                                   Boîte de réception <span class="badge"><?php echo $notif ;?></span>
                                 </button>
-                                </a>
+                                </a>-->
+                                <input class="btn btn-primary" type="button" value="Boite de réception" onclick="javascript:location.href='reception.php'"/>
                                 <?php
                             }
                             else
                             {
-                                ?><a href="reception.php"><button class="btn btn-primary" type="button"> Boîte de réception </button></a>                                 <?php
+                                ?>
+                        <!--<a href="reception.php"><button class="btn btn-primary" type="button"> Boîte de réception </button></a>-->
+                        <input class="btn btn-primary" type="button" value="Boite de réception" onclick="javascript:location.href='reception.php'"/>
+                        <?php
                             }
                         ?>
 					</div>
@@ -125,5 +131,5 @@
 <?php
     }
 	include('chatbox.php');
-    include('footer.php');
+    include('php/footer.php');
 ?>

@@ -1,5 +1,5 @@
 <?php
-    include('header.php');
+    include('php/header.php');
 ?>
 
 <div class="container">
@@ -26,7 +26,7 @@
                                 <!-- Auteur (nom + tag) -->
                                 <div class="col-md-3 author-outer">
                                     <div class="author-inner">
-                                        <img class="img-circle" src="http://www.reactiongifs.com/r/overbite.gif">
+                                        <img class="img-circle" src="http://www.reactiongifs.com/r/overbite.gif" alt="news1" />
                                         <p>Université de Haute-Alsace
                                         <span class="label label-danger">Université</span></p>
                                     </div>
@@ -48,7 +48,7 @@
                             <div class="row">
                                 <div class="col-md-3 author-outer">
                                     <div class="author-inner">
-                                        <img class="img-circle" src="img/profile_test1.png">
+                                        <img class="img-circle" src="img/profile_test1.png" alt="news2" />
                                         <p>Le chat présent partout
                                         <span class="label label-info">Chat</span>
                                         <span class="label label-warning">Testeur</span></p>
@@ -70,7 +70,7 @@
                             <div class="row">
                                 <div class="col-md-3 author-outer">
                                     <div class="author-inner">
-                                        <img class="img-circle" src="img/profile_test2.jpg">
+                                        <img class="img-circle" src="img/profile_test2.jpg" alt="news3">
                                         <p>Kermit la grenouille
                                         <span class="label label-success">Grenouille</span></p>
                                     </div>
@@ -125,7 +125,7 @@
                             <div class="btn btn-default preview-input">
                                 <span class="glyphicon glyphicon-folder-open"></span>
                                 <span class="preview-input-title">Image</span>
-                                <input type="file" accept="image/png, image/jpeg, image/gif" name="file-preview" placeholder="image .png, .jpeg, .gif" />
+                                <input type="file" accept="image/png, image/jpeg, image/gif" name="file-preview" />
                             </div>
                             </span>
                         </div>
@@ -165,7 +165,7 @@
 
                 <!-- Auteur : image, nom, tags -->
                 <div class="panel-heading">
-                    <button type="btn" class="close">
+                    <button type="button" class="close">
                         <span aria-hidden="true">&times;</span>
                         <span class="sr-only">Close</span>
                     </button>
@@ -202,7 +202,7 @@
 
                 <!-- Panel caché pour commenter -->
                 <div class="panel-comment">
-                        <img class="img-circle" src="img/profile_test1.png">
+                        <img class="img-circle" src="img/profile_test1.png" alt="profile_test1.png">
                         <div class="panel-custom-textarea">
                             <textarea rows="2"></textarea>
                             <button type="submit" class="[ btn btn-info disabled ]">Envoyer</button>
@@ -216,7 +216,7 @@
             <!-- Post 2 -->
             <div class="[panel panel-default] panel-custom">
                 <div class="panel-heading">
-                    <button type="btn" class="close">
+                    <button type="button" class="close">
                         <span aria-hidden="true">&times;</span>
                         <span class="sr-only">Close</span>
                     </button>
@@ -248,7 +248,7 @@
                 </div>
 
                     <div class="panel-comment">
-                        <img class="img-circle" src="img/profile_test1.png">
+                        <img class="img-circle" src="img/profile_test1.png" alt="profile_test1.png">
                         <div class="panel-custom-textarea">
                             <textarea rows="2"></textarea>
                             <button type="submit" class="[ btn btn-info disabled ]">Envoyer</button>
@@ -262,7 +262,7 @@
             <!-- Post 3 -->
             <div class="[panel panel-default] panel-custom">
                 <div class="panel-heading">
-                    <button type="btn" class="close">
+                    <button type="button" class="close">
                         <span aria-hidden="true">&times;</span>
                         <span class="sr-only">Close</span>
                     </button>
@@ -295,7 +295,7 @@
                 </div>
 
                 <div class="panel-comment">
-                    <img class="img-circle" src="img/profile_test1.png">
+                    <img class="img-circle" src="img/profile_test1.png" alt="profile_test1.png">
                     <div class="panel-custom-textarea">
                         <textarea rows="2"></textarea>
                         <button type="submit" class="[ btn btn-info disabled ]">Envoyer</button>
@@ -309,7 +309,7 @@
             <!-- Post 3 -->
             <div class="[panel panel-default] panel-custom">
                 <div class="panel-heading">
-                    <button type="btn" class="close">
+                    <button type="button" class="close">
                         <span aria-hidden="true">&times;</span>
                         <span class="sr-only">Close</span>
                     </button>
@@ -342,7 +342,7 @@
                 </div>
 
                 <div class="panel-comment">
-                    <img class="img-circle" src="img/profile_test1.png">
+                    <img class="img-circle" src="img/profile_test1.png" alt="profile_test1.png">
                     <div class="panel-custom-textarea">
                         <textarea rows="2"></textarea>
                         <button type="submit" class="[ btn btn-info disabled ]">Envoyer</button>
@@ -360,5 +360,5 @@
 
 <?php
     include('chatbox.php');
-    include('footer.php');
+    include('php/footer.php');
 ?>

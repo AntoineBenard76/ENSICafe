@@ -1,5 +1,5 @@
 <?php
-    include('header.php');
+    include('php/header.php');
 ?>
 
 <div class="container">
@@ -47,6 +47,7 @@
 							<a href="#">
                                 <button type="button" class="btn btn-info"><span class="glyphicon glyphicon-log-in"></span>Voir</button>
 							</a>
+                            <!--<input class="btn btn-info" type="button" value="Voir" onclick="" /> <span class="glyphicon glyphicon-log-in"></span>-->
 						</div>
 					</div>
 					<div class="club-body"><br>
@@ -67,5 +68,5 @@
 
 <?php
 	include('chatbox.php');
-    include('footer.php');
+    include('php/footer.php');
 ?>

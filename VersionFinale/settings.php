@@ -1,7 +1,7 @@
 <?php
     session_start();
     $bdd = new PDO('mysql:host=127.0.0.1;dbname=espace_membre', 'root', '');
-    include('header.php');
+    include('php/header.php');
 
     if(isset($_SESSION['id']))
     {
@@ -14,7 +14,7 @@
             $newmail = htmlspecialchars($_POST['newmail']);
             $insertmail = $bdd->prepare("UPDATE membres SET mail = ? WHERE id = ?");
             $insertmail->execute(array($newmail, $_SESSION['id']));
-            header('Location: profil.php?id='.$_SESSION['id']);
+            header('Location:profil.php?id='.$_SESSION['id']);
         }
         
         if(isset($_POST['newmdp1']) AND !empty($_POST['newmdp1']) AND isset($_POST['newmdp2']) AND !empty($_POST['newmdp2']))
@@ -25,7 +25,7 @@
             {
                 $insertmdp = $bdd->prepare('UPDATE membres SET motdepasse = ? WHERE id = ?');
                 $insertmdp->execute(array($mdp1, $_SESSION['id']));
-                header('Location: profil.php?id='.$_SESSION['id']);
+                header('Location:profil.php?id='.$_SESSION['id']);
             }
             else 
             {
@@ -38,7 +38,7 @@
             $newspecialite = htmlspecialchars($_POST['newspecialite']);
             $insertmail = $bdd->prepare("UPDATE membres SET specialite = ? WHERE id = ?");
             $insertmail->execute(array($newspecialite, $_SESSION['id']));
-            header('Location: profil.php?id='.$_SESSION['id']);
+            header('Location:profil.php?id='.$_SESSION['id']);
         }
 
         if(isset($_FILES['avatar']) AND !empty($_FILES['avatar']['name']))
@@ -59,7 +59,7 @@
                             'avatar' => $_SESSION['id'].".".$extensionUpload,
                             'id' => $_SESSION['id']
                         ));
-                        header('Location: profil.php?id='.$_SESSION['id']);
+                        header('Location:profil.php?id='.$_SESSION['id']);
                     }
                     else
                     {
@@ -92,7 +92,7 @@
                 <!-- Avatar -->
 				<div class="media settings-avatar">
                     <div class="media-left">
-                        <img class="media-object img-circle" src="img/avatars/<?php echo $user['avatar']?>" height="150px" width="150px">
+                        <img class="media-object img-circle" src="img/avatars/<?php echo $user['avatar']?>" height="150px" width="150px" alt="avatar">
                     </div>
                     
                     <div class="media-body">
@@ -110,7 +110,7 @@
                                 <div class="btn btn-default preview-input">
                                     <span class="glyphicon glyphicon-folder-open"></span>
                                     <span class="preview-input-title">Image</span>
-                                    <input type="file" accept="image/png, image/jpeg, image/gif" name="avatar" placeholder="image .png, .jpeg, .gif" />
+                                    <input type="file" accept="image/png, image/jpeg, image/gif" name="avatar" />
                                 </div>
                                 </span>
                             </div>
@@ -126,7 +126,7 @@
                 <!-- Mail -->
                 <form>
                     <div class="form-group">
-    					<label class="col-md-4 control-label" for="newmail">Adresse mail</label>
+    					<label class="col-md-4 control-label">Adresse mail</label>
     					<div class="col-md-4">
     						<input type="email" name="newmail" placeholder="Mail" class="form-control input-md" value="<?= $user['mail']?>"/>
     					</div>
@@ -136,16 +136,16 @@
 
                     <!-- Password -->
     				<div class="form-group">
-    					<label class="col-md-4 control-label" for="newmdp1">Nouveau mot de passe</label>
+    					<label class="col-md-4 control-label">Nouveau mot de passe</label>
     					<div class="col-md-4">
-    						<input type="password" name="newmdp1" placeholder="Nouveau mot de passe" class="form-control input-md">
+    						<input type="password" name="newmdp1" placeholder="Nouveau mot de passe" class="form-control input-md"/>
     				    </div>
                     </div>
                     <br><br>
     				<div class="form-group">
-    					<label class="col-md-4 control-label" for="newmdp2">Confirmer le nouveau mot de passe</label>
+    					<label class="col-md-4 control-label">Confirmer le nouveau mot de passe</label>
     					<div class="col-md-4">
-    						<input type="password" name="newmdp2" placeholder="Confirmer le mot de passe" class="form-control input-md">
+    						<input type="password" name="newmdp2" placeholder="Confirmer le mot de passe" class="form-control input-md"/>
     					</div>
     				</div>
                     <br><br>
@@ -153,7 +153,7 @@
 
                     <!-- Spécialité -->
                     <div class="form-group">
-    					<label class="col-md-4 control-label" for="newspecialite">Spécialité</label>
+    					<label class="col-md-4 control-label">Spécialité</label>
     					<div class="col-md-4">
     						<select class="form-control" name="newspecialite">
                                 <option>Informatique &amp; Réseaux</option>
@@ -176,9 +176,10 @@
                     <!-- /#parcours -->
 
                     <div class="settings-buttons">
-                        <button class="[ btn btn-info ]">
-                            <a href="profil.php?id=<?= $_SESSION['id'] ?>">Retour</a>
-                        </button>
+                       <!-- <button class="[ btn btn-info ]">
+                            <a href="profil.php?id=<?php /* $_SESSION['id']*/ ?>">Retour</a>
+                        </button>-->
+                        <input class="btn btn-info" type="button" value="Retour" onclick="javascript:location.href='profil.php?id=<?= $_SESSION['id'] ?>'"/>
                     </div>
                     <button class="[ btn btn-success ] settings-apply pull-right" type="submit">Mettre à jour le profil</button>
                 </form>
@@ -192,8 +193,8 @@
 
 <?php
     } else {
-        header("Location : index.php");
+        header("Location:index.php");
     }
 	include('chatbox.php');
-    include('footer.php');
+    include('php/footer.php');
 ?>

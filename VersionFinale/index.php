@@ -1,7 +1,7 @@
 <?php
     session_start();
     $bdd = new PDO('mysql:host=127.0.0.1;dbname=espace_membre', 'root', '');
-    include('header-login.php');
+    include('php/header-login.php');
 ?>
 
 <br>
@@ -61,14 +61,14 @@
                         <div class="innter-form">
                             <form class="sa-innate-form" method="post">
 
-                                <label for="mail">Adresse mail</label>
+                                <label>Adresse mail</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                                     <input type="text" class="form-control" name="mailconnect" placeholder="prenom.nom@uha.fr">
                                 </div>
                                 <br>
 
-                                <label for="mdp">Mot de passe</label>
+                                <label>Mot de passe</label>
                                 <div class="input-group">
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
                                     <input type="password" class="form-control" name="mdpconnect" placeholder="mot de passe">
@@ -76,7 +76,7 @@
                                 <br>
 
                                 <button type="submit" name="formconnexion">Se connecter</button>
-                                <p><a href="">Mot de passe oublié?</a></p>
+                                <p><a href="mdp.php">Mot de passe oublié?</a></p>
                             </form>
                         </div>
                         <div class="clearfix"></div>
@@ -85,64 +85,15 @@
 
                     <!-- Register -->
                     <div id="sectionB" class="tab-pane fade">
-<?php 
-    if(isset($_POST['forminscription'])) {
-        $nom = htmlspecialchars($_POST['nom']);
-        $prenom = htmlspecialchars($_POST['prenom']);
-        $specialite = htmlspecialchars($_POST['specialite']);
-        $mail = htmlspecialchars($_POST['mail']);
-        $mail2 = htmlspecialchars($_POST['mail2']);
-        $date = htmlspecialchars($_POST['date']);
-        $genre = htmlspecialchars($_POST['genre']);
-        $mdp = sha1($_POST['mdp']);
-        $mdp2 = sha1($_POST['mdp2']);
-        
-            if(!empty($_POST['date']) AND !empty($_POST['nom']) AND !empty($_POST['prenom']) AND !empty($_POST['mail']) AND !empty($_POST['mail2']) AND !empty($_POST['mdp']) AND !empty($_POST['mdp2']) AND !empty($_POST['genre'])) {
-            $prenomlength = strlen($prenom);
-            $nomlength = strlen($nom);
-            if($nomlength <= 255 AND $prenomlength <= 255) {
-                if($mail == $mail2) {
-                    if(filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-                        $reqmail = $bdd->prepare('SELECT * FROM membres WHERE mail= ?');
-                        $reqmail->execute(array($mail));
-                        $mailexist = $reqmail->rowCount();
-                        if($mailexist == 0) {
-                            if($mdp == $mdp2) {
-                                $insertmbr = $bdd->prepare('INSERT INTO membres(mail, motdepasse, nom, prenom, date, genre, avatar, specialite) VALUES (?,?,?,?,?,?,?,?)');
-                                $insertmbr->execute(array($mail, $mdp, $nom, $prenom, $date, $genre, "default.jpg", $specialite));
-                                $erreur = "Votre compte a bien été créé." ;
-                                //mettre $_SESSION au dessus
-                                //header('Location : index.php')
-                            } else {
-                                $erreur = "Vos mots de passe ne correspondent pas !";
-                            }
-                        } else {
-                            $erreur = "Adresse mail est déjà utilisée.";
-                        }
-                    } else {
-                        $erreur = "Votre adresse mail n'est pas valide !";
-                    }
-                } else {
-                    $erreur = "Vos adresses mails ne correspondent pas !";
-                }
-            } else {
-                    $erreur = "Votre nom/prénom ne doit pas dépasser 255 caractères !";
-            }
-        } else {
-            $erreur = "Tous les champs doivent être complétés.";
-        }
-
-    }
-?>
                         <div class="innter-form">
-                            <form class="sa-innate-form" method="post">
+                            <form class="sa-innate-form" method="post" action="traitementInscription.php">
 
-                                <label for="nom">Nom :</label>
+                                <label>Nom :</label>
                                 <input name="nom" required="required" type="text" placeholder="Votre nom" />
 
-                                <label for="prenom">Prénom :</label>
+                                <label>Prénom :</label>
                                 <input name="prenom" required="required" type="text" placeholder="Votre prénom" />
-                                <label for="specialite">Spécialité :</label>
+                                <label>Spécialité :</label>
                                 <select class="form-control" name="specialite">
                                     <option>Informatique &amp; Réseaux</option>
                                     <option>Automatiques et Systèmes embarqués</option>
@@ -152,25 +103,25 @@
                                     <option>Autre</option>
                                 </select>
 
-                                <label for="mail">Adresse mail :</label>
+                                <label>Adresse mail :</label>
                                 <input name="mail" required="required" type="email" placeholder="prenom.nom@uha.fr"/>
                                 
-                                <label for="mail2">Confirmer l'adresse mail :</label>
+                                <label>Confirmer l'adresse mail :</label>
                                 <input name="mail2" required="required" type="email" placeholder="prenom.nom@uha.fr"/>
 
-                                <label for="date">Votre date de naissance :</label>
-                                <input type="date" name="date" placeholder="AAAAMMJJ"/>
+                                <label>Votre date de naissance :</label>
+                                <input type="date" name="date" />
 
-                                <label for="genre" class="u_genre">Votre genre :</label>
+                                <label class="u_genre">Votre genre :</label>
                                 <select name="genre">
                                     <option value="Homme">Homme</option>
                                     <option value="Femme">Femme</option>
                                 </select>
                                 
-                                <label for="mdp">Mot de passe :</label>
+                                <label>Mot de passe :</label>
                                 <input type="password" name="mdp" placeholder="mot de passe"/>
                                 
-                                <label for="mdp">Confirmer le mot de passe :</label>
+                                <label>Confirmer le mot de passe :</label>
                                 <input type="password" name="mdp2" placeholder="mot de passe"/>
 
                                 <button type="submit" name="forminscription">S'inscrire</button>
@@ -187,15 +138,15 @@
     </div>
     <!-- mettre ça en joli (alert) -->
     <div align="center">
-                            <?php 
-                if(isset($erreur))
+            <?php 
+                if(isset($_SESSION['erreur']))
                 {
-                    echo '<font color="red">'.$erreur.'</font>';
+                    echo '<font color="red">'.$_SESSION['erreur'].'</font>';
                 }
             ?>
     </div>
 </div>
 
 <?php
-    include('footer.php');
+    include('php/footer.php');
 ?>

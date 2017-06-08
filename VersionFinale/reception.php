@@ -1,7 +1,7 @@
 <?php
     session_start();
     $bdd = new PDO('mysql:host=127.0.0.1;dbname=espace_membre', 'root', '');
-    include('header.php');
+    include('php/header.php');
 
     if(isset($_SESSION['id']) AND !empty($_SESSION['id']))
     {
@@ -44,7 +44,7 @@
                 <!-- Profil 1 -->
                 <div class="media conversation" id="menu_1">
                     <a class="pull-left" href="#">
-                        <img class="img-circle" src="img/profile_test1.png">
+                        <img class="img-circle" src="img/profile_test1.png" alt="profile_test1.png">
                     </a>
                     <div class="media-body">
                         <h5 class="media-heading">Le super chat</h5>
@@ -56,7 +56,7 @@
                 <!-- Profil 2 -->
                 <div class="media conversation" id="menu_2">
                     <a class="pull-left" href="#">
-                        <img class="img-circle" src="img/profile_test2.jpg">
+                        <img class="img-circle" src="img/profile_test2.jpg" alt="profile_test2.jpg">
                     </a>
                     <div class="media-body">
                         <h5 class="media-heading">La super grenouille</h5>
@@ -75,7 +75,7 @@
                     <!-- Message 1 -->
                     <div class="media msg">
                         <a class="pull-left" href="#">
-                            <img class="media-object img-circle" src="img/profile_test1.png">
+                            <img class="media-object img-circle" src="img/profile_test1.png" alt="profile_test1.png">
                         </a>
                         <div class="media-body">
                             <small class="pull-right time"><i class="glyphicon glyphicon-time"></i>13h45</small>
@@ -93,7 +93,7 @@
                     <!-- Message 2 -->
                     <div class="media msg">
                         <a class="pull-left" href="#">
-                            <img class="media-object img-circle" src="img/profile_test1.png">
+                            <img class="media-object img-circle" src="img/profile_test1.png" alt="profile_test1.png">
                         </a>
                         <div class="media-body">
                             <small class="pull-right time"><i class="glyphicon glyphicon-time"></i>10h21</small>
@@ -110,7 +110,7 @@
                     <!-- Message 1 -->
                     <div class="media msg">
                         <a class="pull-left" href="#">
-                            <img class="media-object img-circle" src="img/profile_test2.jpg">
+                            <img class="media-object img-circle" src="img/profile_test2.jpg" alt="profile_test2.jpg">
                         </a>
                         <div class="media-body">
                             <small class="pull-right time"><i class="glyphicon glyphicon-time"></i>48h03</small>
@@ -123,7 +123,7 @@
                     <!-- Message 2 -->
                     <div class="media msg">
                         <a class="pull-left" href="#">
-                            <img class="media-object img-circle" src="img/profile_test2.jpg">
+                            <img class="media-object img-circle" src="img/profile_test2.jpg" alt="profile_test2.jpg">
                         </a>
                         <div class="media-body">
                             <small class="pull-right time"><i class="glyphicon glyphicon-time"></i>66h66</small>
@@ -136,7 +136,7 @@
                     <!-- Message 3 -->
                     <div class="media msg">
                         <a class="pull-left" href="#">
-                            <img class="media-object img-circle" src="img/profile_test2.jpg">
+                            <img class="media-object img-circle" src="img/profile_test2.jpg" alt="profile_test2.jpg">
                         </a>
                         <div class="media-body">
                             <small class="pull-right time"><i class="glyphicon glyphicon-time"></i>42h87</small>
@@ -169,6 +169,6 @@
 
 <?php
     include('chatbox.php');
-    include('footer.php');
+    include('php/footer.php');
     }
 ?>
