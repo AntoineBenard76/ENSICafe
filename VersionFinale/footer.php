@@ -40,7 +40,8 @@
             });
         });
 
-        // accueil.php : fait apparaître la fenêtre pour commenter (publication)
+        // accueil.php : désactive la possibilité de commenter si la zone de texte est vide (commentaire)
+        //               permet aussi d'afficher la zone de texte lorsqu'on clique sur "commenter"
         $(function () {
              $('.panel-custom > .panel-body > .pull-left > .input-placeholder, .panel-custom > .panel-comment > .panel-custom-textarea > button[type="reset"]').on('click', function(event) {
                 var $panel = $(this).closest('.panel-custom');
@@ -65,6 +66,18 @@
                 }
             });
 
+        });
+
+        // accueil.php : désactive la possibilité de commenter si la zone de texte est vide (publication)
+        $(function () {
+             $('.panel-publication > .panel-collapse > .panel-body > .publication-msg > textarea').on('keyup', function(event) {
+                var $comment = $(this).closest('.publication-msg');
+
+                $comment.find('button[type="submit"]').addClass('disabled');
+                if ($(this).val().length >= 1) {
+                    $comment.find('button[type="submit"]').removeClass('disabled');
+                }
+            });
         });
 
         // accueil.php + settings.php : upload de fichier

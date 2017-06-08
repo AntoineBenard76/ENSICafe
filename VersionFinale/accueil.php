@@ -132,10 +132,18 @@
                         <!-- /#envoyer-une-image -->
 
                         <!-- Envoyer un message -->
-                        <form accept-charset="utf-8" action="" class="publication-msg" method="post">
+                        <form accept-charset="utf-8" action="" class="form-group publication-msg" method="post">
                             <textarea class="form-control" name="publier" placeholder="Entrez votre message" rows="2"></textarea>
-                            <button class="[ btn btn-info disabled ]" type="submit">Poster</button>
+                            <button class="[ btn btn-primary disabled ]" type="submit">Poster</button>
                             <button class="[ btn btn-default ]" type="reset">Annuler</button>
+                            <div class="btn-group pull-right" data-toggle="buttons">
+                                <label class="btn btn-info active">
+                                    <input type="radio" name="btn-publication" autocomplete="off"> Publication
+                                </label>
+                                <label class="btn btn-info">
+                                    <input type="radio" name="btn-publication" autocomplete="off"> Annonce
+                                </label>
+                            </div>
                         </form>
                         <!-- /#envoyer-un-message -->
                     </div>
