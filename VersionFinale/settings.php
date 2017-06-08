@@ -97,23 +97,25 @@
                     
                     <div class="media-body">
                         <h4><br>Changer d'image de profil</h4>
-                        <form method="POST" action="" enctype="multipart/form-data">
                         <!-- Send image -->
-                        <div class="input-group preview">
-                            <input type="text" class="form-control preview-filename" disabled="disabled">
-                            <span class="input-group-btn">
-                            <!-- preview-clear button -->
-                            <button type="button" class="btn btn-default preview-clear" style="display:none;">
-                                <span class="glyphicon glyphicon-remove"></span> Annuler
-                            </button>
-                            <!-- preview-input -->
-                            <div class="btn btn-default preview-input">
-                                <span class="glyphicon glyphicon-folder-open"></span>
-                                <span class="preview-input-title">Image</span>
-                                <input type="file" accept="image/png, image/jpeg, image/gif" name="avatar" placeholder="image .png, .jpeg, .gif" />
+                        <form method="POST" action="" enctype="multipart/form-data">
+                            <div class="input-group preview">
+                                <input type="text" class="form-control preview-filename" disabled="disabled">
+                                <span class="input-group-btn">
+                                <!-- preview-clear button -->
+                                <button type="button" class="btn btn-default preview-clear" style="display:none;">
+                                    <span class="glyphicon glyphicon-remove"></span> Annuler
+                                </button>
+                                <!-- preview-input -->
+                                <div class="btn btn-default preview-input">
+                                    <span class="glyphicon glyphicon-folder-open"></span>
+                                    <span class="preview-input-title">Image</span>
+                                    <input type="file" accept="image/png, image/jpeg, image/gif" name="avatar" placeholder="image .png, .jpeg, .gif" />
+                                </div>
+                                </span>
                             </div>
-                            </span>
-                        </div>
+                            <button class="[ btn btn-success ] settings-apply" type="submit">Mettre à jour l'image de profil</button>
+                        </form>
                         <!-- /#send-image -->
                     </div>
 				</div>
