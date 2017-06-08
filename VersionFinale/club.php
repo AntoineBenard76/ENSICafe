@@ -2,37 +2,68 @@
     include('header.php');
 ?>
 
-<!-- Contenu principal -->
-
 <div class="container">
+    
+    <div class="row">
+        <div class="navbar navbar-club">
+            navbar
+        </div>
+    </div>
+    
 	<div class="row">
 			<div class="col-md-10 col-md-offset-1">
-				<!-- BEGIN Portlet PORTLET-->
+				<!-- CLUB 1 -->
 				<div class="club-panel">
 					<div class="club-title">
 						<div class="club-caption">
-							<i class="glyphicon glyphicon-calendar"></i>
-							<span class="caption-subject text-uppercase"> XiD</span>
-							<span class="caption-helper">le club de geeks</span>
+							<span class="caption-name text-uppercase">XiD</span>
 						</div>
-						<div class="club-actions">
-							<a href="javascript:;" class="btn">
-								<span class="glyphicon glyphicon-log-in"></span>
-								Voir 
+						<div class="club-actions pull-right">
+							<a href="#">
+                                <button type="button" class="btn btn-info"><span class="glyphicon glyphicon-log-in"></span>Voir</button>
 							</a>
 						</div>
 					</div>
-					<div class="club-body">
-						<h4>Heading Text</h4>
-						<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.</p>
+					<div class="club-body"><br>
+                        <div class="media">
+                            <div class="media-left">
+                                <img class="media-object" src="img/profile_test1.png" alt="photo_club" />
+                            </div>
+                            <div class="media-body">
+                                <p>En géomorphologie, une grotte est une cavité souterraine naturelle comportant au moins une partie horizontale accessible ; ce qui la distingue d'un aven, d'un gouffre, d'un abîme, etc. La première édition du Dictionnaire de l'Académie française (1694) précise qu'elle peut être « naturelle ou faite par artifice ».</p>
+                            </div>
+                        </div>
 					</div>
 				</div>
-				<!-- END Portlet PORTLET-->
+				<!-- /#CLUB 1 -->
+                
+                <!-- CLUB 1 -->
+				<div class="club-panel">
+					<div class="club-title">
+						<div class="club-caption">
+							<span class="caption-name text-uppercase">Club musique</span>
+						</div>
+						<div class="club-actions pull-right">
+							<a href="#">
+                                <button type="button" class="btn btn-info"><span class="glyphicon glyphicon-log-in"></span>Voir</button>
+							</a>
+						</div>
+					</div>
+					<div class="club-body"><br>
+						<div class="media">
+                            <div class="media-body">
+                                <p>La dépression (également appelée dépression caractérisée, dépression clinique ou dépression majeure) est un trouble mental caractérisé par des épisodes de baisse d'humeur (tristesse) accompagnée d'une faible estime de soi et d'une perte de plaisir ou d'intérêt dans des activités habituellement ressenties comme agréables par l'individu. Cet ensemble de symptômes (syndrome) individualisé et anciennement classifié dans le groupe des troubles de l'humeur par le manuel diagnostique de l'association américaine de psychiatrie, figure depuis la sortie du DSM-5 en mai 2013 dans la catégorie appelée "Troubles dépressifs". Le terme de « dépression » est cependant ambigu ; il est en effet parfois utilisé dans le langage courant pour décrire d'autres troubles de l'humeur ou d'autres types de baisse d'humeur moins significatifs qui ne sont pas des dépressions proprement dites.</p>
+                            </div>
+                            <div class="media-right">
+                                <img class="media-object" src="img/profile_test2.jpg" alt="photo_club" />
+                            </div>
+                        </div>
+					</div>
+				</div>
+				<!-- /#CLUB 1 -->
 			</div>
 	</div>
 </div>
-
-<!-- Contenu principal -->
 
 <?php
 	include('chatbox.php');

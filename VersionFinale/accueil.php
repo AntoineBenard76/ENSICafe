@@ -103,15 +103,17 @@
         <div class="col-xs-12 col-md-6 col-md-offset-3">
             <!-- Panel -->
             <div class="panel panel-publication">
+                <!-- Panel heading -->
                 <div class="panel-heading" id="accordion-toggle" data-toggle="collapse" href="#collapse-publication">
                     <span class="glyphicon glyphicon-comment"></span><span class="chatbox-name"> Créer une publication</span>
                     <span class="glyphicon glyphicon-chevron-down pull-left"></span>
                     <span class="glyphicon glyphicon-chevron-down pull-right"></span>
                 </div>
+                <!-- /#panel-heading -->
 
                 <div id="collapse-publication" class="panel-collapse collapse" role="tabpanel">
                     <div class="panel-body">
-                        <!-- Send image -->
+                        <!-- Envoyer une image -->
                         <div class="input-group preview">
                             <input type="text" class="form-control preview-filename" disabled="disabled">
                             <span class="input-group-btn">
@@ -127,15 +129,15 @@
                             </div>
                             </span>
                         </div>
-                        <!-- /#send-image -->
+                        <!-- /#envoyer-une-image -->
 
-                        <!-- Send message -->
+                        <!-- Envoyer un message -->
                         <form accept-charset="utf-8" action="" class="publication-msg" method="post">
                             <textarea class="form-control" name="publier" placeholder="Entrez votre message" rows="2"></textarea>
                             <button class="[ btn btn-info disabled ]" type="submit">Poster</button>
                             <button class="[ btn btn-default ]" type="reset">Annuler</button>
                         </form>
-                        <!-- /#send-message -->
+                        <!-- /#envoyer-un-message -->
                     </div>
                 </div>
             </div>

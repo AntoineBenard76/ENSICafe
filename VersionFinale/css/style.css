@@ -683,13 +683,36 @@ body {
 
 .club-panel {
     background-color: #FFFFFF;
+    border: 1px solid #E8DE97;
+    border-radius: 5px;
+    margin-bottom: 20px;
     padding: 20px;
 }
 
-.club-title {
+.club-panel > .club-title > .club-caption {
+    display: inline;
+}
+
+.club-panel > .club-title > .club-caption > .caption-name {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.club-panel > .club-title > .club-actions span {
+    margin-right: 5px;
+}
+
+.club-panel > .club-title {
     padding: 0px;
     min-height: 40px;
     border-bottom: 1px solid #eee;
+}
+
+.club-panel > .club-body > .media > .media-left > img,
+.club-panel > .club-body > .media > .media-right > img {
+    border: 2px solid #E8DE97;
+    max-width: 200px;
+    margin-right: 5px;
 }
 
 
