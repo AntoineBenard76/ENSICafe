@@ -92,8 +92,8 @@ if(isset($_POST['envoyer_code'],$_POST['code'])){
             //Update de confirme
             $up_req=$bdd->prepare('UPDATE recuperation SET confirme=1 WHERE mail=?');
             $up_req->execute(array($_SESSION['mail']));
-            $del_req=$bdd->prepare('DELETE FROM recuperation WHERE mail=?');
-            $del_req->execute(array($_SESSION['mail']));
+/*            $del_req=$bdd->prepare('DELETE FROM recuperation WHERE mail=?');
+            $del_req->execute(array($_SESSION['mail']));*/
             //Redirection vers un formulaire pour modifer le mdp
             header("Location:http://127.0.0.1/ENSICafe-SiteDesign-Connexion/SiteDesign/mdp.php?section=changemdp");
         }else{
@@ -120,6 +120,9 @@ if(isset($_POST['enregistrer'])){
                     //Changement du mdp
                     $insert_mdp = $bdd->prepare('UPDATE membres SET motdepasse=? WHERE mail=?');
                     $insert_mdp->execute(array($mdp1,$_SESSION['mail']));
+                    //Suppression du mail de la table récupération
+                    $del_req=$bdd->prepare('DELETE FROM recuperation WHERE mail=?');
+                    $del_req->execute(array($_SESSION['mail']));
                     //Redirection vers la page de connexion
                     header("Location:http://127.0.0.1/ENSICafe-SiteDesign-Connexion/SiteDesign/index.php");
                 }else{
