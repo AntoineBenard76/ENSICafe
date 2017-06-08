@@ -5,9 +5,26 @@
 <div class="container">
     
     <div class="row">
-        <div class="navbar navbar-club">
-            navbar
+    	<!-- Navigation club -->
+        <div class="navbar navbar-default navbar-club">
+            <div class="navbar-header">
+            	<a class="navbar-brand" href="#">Liste des clubs</a>
+            </div>
+
+            <div class="collapse navbar-collapse">
+            	<form class="navbar-form navbar-left">
+            		<div class="form-group">
+            			<input type="text" name="recherche" class="form-control" placeholder="Chercher un club...">
+            		</div>
+            		<button type="submit" class="btn btn-info">Chercher</button>
+            	</form>
+
+            	<ul class="nav navbar-nav navbar-right">
+            		<li><a href="#"><button type="button" class="btn btn-info">Créer un club</button></a></li>
+            	</ul>
+            </div>
         </div>
+        <!-- /#navigation-club -->
     </div>
     
 	<div class="row">

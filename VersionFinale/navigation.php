@@ -9,8 +9,9 @@
         <div class="col-sm-5 col-md-7">
             <div>
                 <ul class="nav navbar-nav pull-right">
-                    <li><a href="accueil.php"><span class="glyphicon glyphicon-check"></span> Accueil</a></li>
-                    <li><a href="deconnexion.php"><span class="glyphicon glyphicon-check"></span> Se déconnecter</a></li>
+                    <li><a href="accueil.php"><span class="glyphicon glyphicon-home"></span> Accueil</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Messages <span class="badge">42</span></a></li>
+                    <li><a href="deconnexion.php"><span class="glyphicon glyphicon-log-out"></span> Déconnexion</a></li>
                 </ul>
             </div>
         </div>

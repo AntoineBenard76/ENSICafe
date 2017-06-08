@@ -20,6 +20,10 @@ body {
     background: #f7f3d3;
 }
 
+button:focus {
+    outline: 0 !important;
+}
+
 /* ---------- Alert ---------- */
 
 .alert {
@@ -680,6 +684,10 @@ body {
 
 
 /* ---------- club.php ---------- */
+
+.navbar-club > .navbar-collapse > .navbar-right a {
+    margin-top: -6px;
+}
 
 .club-panel {
     background-color: #FFFFFF;
