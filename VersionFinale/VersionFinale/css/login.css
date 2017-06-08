@@ -1,0 +1,102 @@
+/* General */
+
+#welcome-msg {
+    text-align: center;
+}
+
+.form-body {
+    background:#FFFFFF;
+    padding:20px;
+    border-radius: 5px;
+    border: 1px solid #E8DE97;
+}
+
+.login-form {
+    background:rgba(255,255,255,0.8);
+	padding:20px;
+	border-top:3px solid#3e4043;
+}
+
+.innter-form {
+	padding-top:20px;
+}
+
+.final-login li {
+	width:50%;
+}
+
+.nav-tabs {
+    border-bottom: none !important;
+}
+
+.nav-tabs > li {
+	color:#222 !important;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+    color: #F7F3D3;
+    background-color: #25252D;
+    border: none !important;
+    border-bottom-color: transparent;
+	border-radius:none !important;
+}
+
+.nav-tabs > li > a {
+    margin-right: 2px;
+    line-height: 1.428571429;
+    border: none !important;
+    border-radius:none !important;
+	text-transform:uppercase;
+	font-size:16px;
+}
+
+#sectionB .sa-innate-form input[type=text],
+#sectionB .sa-innate-form input[type=password],
+input[type=file],
+input[type=email],
+input[type=date],
+textarea, select, email {
+    font-size:13px;
+	padding:10px;
+	border:1px solid#ccc;
+	outline:none;
+	width:100%;
+	margin: 8px 0px;
+}
+
+.sa-innate-form input[type=submit] {
+    border:1px solid #F7F3D3;
+	background:#25252D;
+    color: #F7F3D3;
+	padding:10px 25px;
+	font-size:14px;
+	margin-top:5px;
+	}
+
+.sa-innate-form input[type=submit]:hover {
+	border:1px solid #25252D;
+	background: #25252D;
+	color:#F7F3D3;
+}
+	
+.sa-innate-form button {
+	border:1px solid #25252D;
+	background: #25252D;
+	color:#F7F3D3;
+    border-radius: 5px;
+	padding:10px 25px;
+	font-size:14px;
+	margin-top:5px;
+}
+
+.sa-innate-form button:hover {
+	border:1px solid #F7F3D3;
+	background: #433E42;
+}
+
+.sa-innate-form p {
+    font-size:13px;
+    padding-top:10px;
+}
