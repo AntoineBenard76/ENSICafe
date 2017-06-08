@@ -19,17 +19,17 @@ if(isset($_POST['envoyer'])){
             if($emailexist==1){
                 $_SESSION['mail']=$email;
                 $code="";
-                //Création du code qui sera envoyé à l'utilisateur
+                // Création du code qui sera envoyé à l'utilisateur
                 for($i=0;$i<8;$i++){
                     $code.=mt_rand(0,9);
                 }
                 
-                //Vérification de l'existence du mail dans la table récupération
+                // Vérification de l'existence du mail dans la table récupération
                 $mail_recup_exist = $bdd->prepare('SELECT id FROM recuperation WHERE mail=?');
                 $mail_recup_exist ->execute(array($email));
                 $mail_recup_exist=$mail_recup_exist->rowcount();
                 if($mail_recup_exist==1){
-                    //Mise à jour du code
+                    // Mise à jour du code
                     $insert = $bdd->prepare('UPDATE recuperation SET code=? WHERE mail=?');
                     $insert->execute(array($code,$email));
                 }else{
@@ -38,12 +38,12 @@ if(isset($_POST['envoyer'])){
                     $insert->execute(array($email,$code,$confirme));
                 }
                 
-                //Envoi du mail de modification
+                // Envoi du mail de modification
                 require 'PHPMailer-master/PHPMailerAutoload.php';
 
                 $mail = new PHPMailer;
 
-                //$mail->SMTPDebug = 3;                               // Enable verbose debug output
+                // $mail->SMTPDebug = 3;                               // Enable verbose debug output
 
                 $mail->isSMTP();                                      // Set mailer to use SMTP
                 $mail->Host = 'smtp.gmail.com';                      // Specify main and backup SMTP servers
@@ -59,7 +59,7 @@ if(isset($_POST['envoyer'])){
                 $mail->isHTML(true);                                  // Set email format to HTML
 
                 $mail->Subject = utf8_decode('Mot de passe oublié');
-                //Penser à corriger le chemin de l'URL du mail
+                // Penser à corriger le chemin de l'URL du mail
                 $mail->Body    = utf8_decode('Voici votre code de récupération : <b>'.$code.'</b>');
                 $mail->AltBody = utf8_decode('Voici votre code de récupération : <b>'.$code.'</b>');
 
@@ -71,17 +71,17 @@ if(isset($_POST['envoyer'])){
                    header("Location:http://127.0.0.1/ENSICafe-SiteDesign-Connexion/SiteDesign/mdp.php?section=code");
                 }
             }else{
-                $erreur= 'Cette adresse n\'est pas enregistrer';
+                $erreur= 'Cette adresse n\'est pas enregistrée';
             }
         }else{
             $erreur= 'Adresse mail incorrecte';
         }
     }else{
-            $erreur= 'Veuillez indiquer votre addresse e-mail';
+            $erreur= 'Veuillez indiquer votre adresse e-mail';
         }
 }
 
-//Traitement du code de récupération
+// Traitement du code de récupération
 if(isset($_POST['envoyer_code'],$_POST['code'])){
     if(!empty($_POST['code'])){
         $verif_code=htmlspecialchars($_POST['code']);
@@ -89,12 +89,12 @@ if(isset($_POST['envoyer_code'],$_POST['code'])){
         $verif_req->execute(array($_SESSION['mail'],$verif_code));
         $verif_req= $verif_req->rowCount();
         if( $verif_req==1){
-            //Update de confirme
+            // Update de confirme
             $up_req=$bdd->prepare('UPDATE recuperation SET confirme=1 WHERE mail=?');
             $up_req->execute(array($_SESSION['mail']));
 /*            $del_req=$bdd->prepare('DELETE FROM recuperation WHERE mail=?');
             $del_req->execute(array($_SESSION['mail']));*/
-            //Redirection vers un formulaire pour modifer le mdp
+            // Redirection vers un formulaire pour modifier le mdp
             header("Location:http://127.0.0.1/ENSICafe-SiteDesign-Connexion/SiteDesign/mdp.php?section=changemdp");
         }else{
            $erreur="Code invalide"; 
@@ -104,7 +104,7 @@ if(isset($_POST['envoyer_code'],$_POST['code'])){
     }
 }
 
-//Traitement du changement de mdp
+// Traitement du changement de mdp
 if(isset($_POST['enregistrer'])){
     if(isset($_POST['mdp1'],$_POST['mdp2'])){
         $verif_confirme=$bdd->prepare('SELECT confirme FROM recuperation WHERE mail=?');
@@ -117,13 +117,13 @@ if(isset($_POST['enregistrer'])){
             if(!empty($mdp1) AND !empty($mdp2)){
                 if($mdp1==$mdp2){
                     $mdp1=sha1($mdp1);
-                    //Changement du mdp
+                    // Changement du mdp
                     $insert_mdp = $bdd->prepare('UPDATE membres SET motdepasse=? WHERE mail=?');
                     $insert_mdp->execute(array($mdp1,$_SESSION['mail']));
-                    //Suppression du mail de la table récupération
+                    // Suppression du mail de la table récupération
                     $del_req=$bdd->prepare('DELETE FROM recuperation WHERE mail=?');
                     $del_req->execute(array($_SESSION['mail']));
-                    //Redirection vers la page de connexion
+                    // Redirection vers la page de connexion
                     header("Location:http://127.0.0.1/ENSICafe-SiteDesign-Connexion/SiteDesign/index.php");
                 }else{
                     $erreur="Vos mots de passes ne correspondent pas";
