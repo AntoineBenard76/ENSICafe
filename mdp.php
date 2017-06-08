@@ -33,8 +33,9 @@ if(isset($_POST['envoyer'])){
                     $insert = $bdd->prepare('UPDATE recuperation SET code=? WHERE mail=?');
                     $insert->execute(array($code,$email));
                 }else{
-                    $insert = $bdd->prepare('INSERT INTO recuperation(mail,code) VALUES(?,?)');
-                    $insert->execute(array($email,$code));
+                    $confirme=0;
+                    $insert = $bdd->prepare('INSERT INTO recuperation(mail,code,confirme) VALUES(?,?,?)');
+                    $insert->execute(array($email,$code,$confirme));
                 }
                 
                 //Envoi du mail de modification
@@ -51,24 +52,23 @@ if(isset($_POST['envoyer'])){
                 $mail->Password = 'ensisa2017';                           // SMTP password
                 $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
                 $mail->Port = 587;                                    // TCP port to connect to
-
-                echo $email;
-                
-                $mail->setFrom('ensicafe2017@gmail.com', 'ENSICafé');
+            
+                $mail->setFrom('ensicafe2017@gmail.com', utf8_decode('ENSICafé'));
                 $mail->addAddress($email);     // Add a recipient
 
                 $mail->isHTML(true);                                  // Set email format to HTML
 
-                $mail->Subject = 'Mot de passe oublié';
+                $mail->Subject = utf8_decode('Mot de passe oublié');
                 //Penser à corriger le chemin de l'URL du mail
-                $mail->Body    = 'Voici votre code de récupération : <b>'.$code.'</b>';
-                $mail->AltBody = 'Voici votre code de récupération : <b>'.$code.'</b>';
+                $mail->Body    = utf8_decode('Voici votre code de récupération : <b>'.$code.'</b>');
+                $mail->AltBody = utf8_decode('Voici votre code de récupération : <b>'.$code.'</b>');
 
                 if(!$mail->send()) {
                     echo 'Le message n\'a pas pu être envoyé.';
                     echo 'Mailer Error: ' . $mail->ErrorInfo;
                 } else {
-                    header("Location:http://127.0.0.1/ENSICafe-SiteDesign-Connexion/SiteDesign/mdp.php?section=code");
+                   //echo 'message envoyé';
+                   header("Location:http://127.0.0.1/ENSICafe-SiteDesign-Connexion/SiteDesign/mdp.php?section=code");
                 }
             }else{
                 $erreur= 'Cette adresse n\'est pas enregistrer';
