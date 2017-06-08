@@ -114,7 +114,7 @@
                                 </div>
                                 </span>
                             </div>
-                            <button class="[ btn btn-success ] settings-apply" type="submit">Mettre à jour l'image de profil</button>
+                            <button class="[ btn btn-success ] settings-apply pull-right" type="submit">Mettre à jour l'image de profil</button>
                         </form>
                         <!-- /#send-image -->
                     </div>
@@ -131,7 +131,7 @@
     						<input type="email" name="newmail" placeholder="Mail" class="form-control input-md" value="<?= $user['mail']?>"/>
     					</div>
     				</div>
-                    <br><br>
+                    <br><br><br>
                     <!-- /#mail -->
 
                     <!-- Password -->
@@ -153,7 +153,7 @@
 
                     <!-- Spécialité -->
                     <div class="form-group">
-    					<label class="col-md-4 control-label" for="newspecialite">Rentrez votre spécialité :</label>
+    					<label class="col-md-4 control-label" for="newspecialite">Spécialité</label>
     					<div class="col-md-4">
     						<select class="form-control" name="newspecialite">
                                 <option>Informatique &amp; Réseaux</option>
@@ -167,6 +167,13 @@
     				</div>
                     <br><br>
                     <!-- /#spécialité -->
+                    
+                    <!-- Parcours -->
+                    <label class="col-md-4 control-label">Parcours</label>
+                    <div class="form-group">
+                        <textarea class="form-control" name="parcours" placeholder="Entrez votre parcours..." rows="5"></textarea>
+                    </div>
+                    <!-- /#parcours -->
 
                     <div class="settings-buttons">
                         <button class="[ btn btn-info ]">
