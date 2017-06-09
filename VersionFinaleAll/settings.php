@@ -1,6 +1,8 @@
 <?php
+    session_start();
+    $bdd = new PDO('mysql:host=127.0.0.1;dbname=espace_membre', 'root', '');
     include('php/header.php');
-
+/*
     if(isset($_SESSION['id']))
     {
         $requser = $bdd->prepare('SELECT * FROM membres WHERE id = ?');
@@ -74,7 +76,7 @@
                 $msg = "Votre photo de profil ne doit pas dépasser 2 Mo.";
             }
         }
-        
+        */
      
 ?>
 
@@ -90,13 +92,13 @@
                 <!-- Avatar -->
 				<div class="media settings-avatar">
                     <div class="media-left">
-                        <img class="media-object img-circle" src="img/avatars/<?php echo $user['avatar']?>" height="150px" width="150px" alt="avatar">
+                        <img class="media-object img-circle" src="img/avatars/<?php echo $_SESSION['avatar']?>" height="150px" width="150px" alt="avatar">
                     </div>
                     
                     <div class="media-body">
                         <h4><br>Changer d'image de profil</h4>
                         <!-- Send image -->
-                        <form method="POST" action="" enctype="multipart/form-data">
+                        <form method="POST" action="traitementEditProfil.php" enctype="multipart/form-data">
                             <div class="input-group preview">
                                 <input type="text" class="form-control preview-filename" disabled="disabled">
                                 <span class="input-group-btn">
@@ -122,11 +124,11 @@
                 <br>
 
                 <!-- Mail -->
-                <form>
+                <form method="post" action="traitementEditProfil.php">
                     <div class="form-group">
     					<label class="col-md-4 control-label">Adresse mail</label>
     					<div class="col-md-4">
-    						<input type="email" name="newmail" placeholder="Mail" class="form-control input-md" value="<?= $user['mail']?>"/>
+    						<input type="email" name="newmail" placeholder="Mail" class="form-control input-md" value="<?= $_SESSION['mail']?>"/>
     					</div>
     				</div>
                     <br><br><br>
@@ -181,7 +183,7 @@
                     </div>
                     <button class="[ btn btn-success ] settings-apply pull-right" type="submit">Mettre à jour le profil</button>
                 </form>
-                <?php if(isset($msg)) { echo $msg; } ?>
+                <?php if(isset($_SESSION['msg'])) { echo $_SESSION['msg']; } ?>
 			</div>
 		</div>
 	</div>
@@ -190,9 +192,9 @@
 <!-- Contenu principal -->
 
 <?php
-    } else {
+    /*} else {
         header("Location:index.php");
-    }
+    }*/
 	include('chatbox.php');
     include('php/footer.php');
 ?>
