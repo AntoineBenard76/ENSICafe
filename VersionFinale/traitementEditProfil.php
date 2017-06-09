@@ -9,6 +9,7 @@
         $user = $requser->fetch();
         $_SESSION['avatar']=$user['avatar'];
         $_SESSION['mail']=$user['mail'];
+        $_SESSION['parcours']=$user['parcours'];
         
         if(isset($_POST['newmail']) AND !empty($_POST['newmail']))
         {
@@ -77,6 +78,14 @@
                 $_SESSION['msg'] = "Votre photo de profil ne doit pas dépasser 2 Mo.";
             }
         }
+        if(isset($_POST['newparcours']) AND !empty($_POST['newparcours']))
+        {
+            $newparcours = htmlspecialchars($_POST['newparcours']);
+            $insertparcours = $bdd->prepare("UPDATE membres SET parcours = ? WHERE id = ?");
+            $insertparcours->execute(array($newparcours, $_SESSION['id']));
+            header('Location:profil.php?id='.$_SESSION['id']);
+        }
+        
     } else {
         header("Location : index.php");
     }

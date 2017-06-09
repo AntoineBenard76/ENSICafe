@@ -74,6 +74,13 @@
                 $msg = "Votre photo de profil ne doit pas dépasser 2 Mo.";
             }
         }
+        if(isset($_POST['newparcours']) AND !empty($_POST['newparcours']))
+        {
+            $newparcours = htmlspecialchars($_POST['newparcours']);
+            $insertparcours = $bdd->prepare("UPDATE membres SET parcours = ? WHERE id = ?");
+            $insertparcours->execute(array($newparcours, $_SESSION['id']));
+            header('Location:profil.php?id='.$_SESSION['id']);
+        }
         
      
 ?>
@@ -122,7 +129,7 @@
                 <br>
 
                 <!-- Mail -->
-                <form>
+                <form method="POST">
                     <div class="form-group">
     					<label class="col-md-4 control-label">Adresse mail</label>
     					<div class="col-md-4">
@@ -169,7 +176,7 @@
                     <!-- Parcours -->
                     <label class="col-md-4 control-label">Parcours</label>
                     <div class="form-group">
-                        <textarea class="form-control" name="parcours" placeholder="Entrez votre parcours..." rows="5"></textarea>
+                        <textarea class="form-control" name="newparcours" placeholder="Entrez votre parcours..." rows="5"></textarea>
                     </div>
                     <!-- /#parcours -->
 

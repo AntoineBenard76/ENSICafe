@@ -46,6 +46,7 @@
                     $_SESSION['avatar'] = $userinfo['avatar'];
                     $_SESSION['mail'] = $userinfo['mail'];
                     $_SESSION['attribut'] = $userinfo['attribut'];
+                    $_SESSION['parcours'] = $userinfo['parcours'];
                     header("Location: accueil.php");
                 }
                 else

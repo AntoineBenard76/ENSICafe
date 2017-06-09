@@ -13,6 +13,7 @@
         $mdp = sha1($_POST['mdp']);
         $mdp2 = sha1($_POST['mdp2']);
         $attribut="Etudiant";
+        $parcours = "";
         
             if(!empty($_POST['date']) AND !empty($_POST['nom']) AND !empty($_POST['prenom']) AND !empty($_POST['mail']) AND !empty($_POST['mail2']) AND !empty($_POST['mdp']) AND !empty($_POST['mdp2']) AND !empty($_POST['genre'])) {
             $prenomlength = strlen($prenom);
@@ -25,8 +26,8 @@
                         $mailexist = $reqmail->rowCount();
                         if($mailexist == 0) {
                             if($mdp == $mdp2) {
-                                $insertmbr = $bdd->prepare('INSERT INTO membres(mail, motdepasse, nom, prenom, date, genre, avatar, specialite, attribut) VALUES (?,?,?,?,?,?,?,?,?)');
-                                $insertmbr->execute(array($mail, $mdp, $nom, $prenom, $date, $genre, "default.jpg", $specialite, $attribut));
+                                $insertmbr = $bdd->prepare('INSERT INTO membres(mail, motdepasse, nom, prenom, date, genre, avatar, specialite, attribut, parcours) VALUES (?,?,?,?,?,?,?,?,?,?)');
+                                $insertmbr->execute(array($mail, $mdp, $nom, $prenom, $date, $genre, "default.jpg", $specialite, $attribut, $parcours));
                                 $_SESSION['erreur'] = "Votre compte a bien été créé." ;
                             } else {
                                 $_SESSION['erreur'] = "Vos mots de passe ne correspondent pas !";
