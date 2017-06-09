@@ -41,8 +41,11 @@
                 {
                     $userinfo = $requser->fetch();
                     $_SESSION['id'] = $userinfo['id'];
-                    $_SESSION['pseudo'] = $userinfo['pseudo'];
+                    $_SESSION['prenom'] = $userinfo['prenom'];
+                    $_SESSION['nom'] = $userinfo['nom'];
+                    $_SESSION['avatar'] = $userinfo['avatar'];
                     $_SESSION['mail'] = $userinfo['mail'];
+                    $_SESSION['attribut'] = $userinfo['attribut'];
                     header("Location: accueil.php");
                 }
                 else

@@ -1,5 +1,5 @@
 <?php
-    include('header.php');
+    include('php/header.php');
 ?>
 
 <!-- Contenu principal -->
@@ -17,5 +17,5 @@
 <!-- Contenu principal -->
 
 <?php
-    include('footer.php');
+    include('php/footer.php');
 ?>
