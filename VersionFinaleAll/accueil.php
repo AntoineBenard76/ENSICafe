@@ -104,7 +104,7 @@
             <!-- Panel -->
             <div class="panel panel-publication">
                 <!-- Panel heading -->
-                <div class="panel-heading" id="accordion-toggle" data-toggle="collapse" href="#collapse-publication">
+                <div class="panel-heading" id="accordion-toggle" data-toggle="collapse" data-target="#collapse-publication">
                     <span class="glyphicon glyphicon-comment"></span><span class="chatbox-name"> Créer une publication</span>
                     <span class="glyphicon glyphicon-chevron-down pull-left"></span>
                     <span class="glyphicon glyphicon-chevron-down pull-right"></span>
@@ -116,18 +116,18 @@
                         <!-- Envoyer une image -->
                         <div class="input-group preview">
                             <input type="text" class="form-control preview-filename" disabled="disabled">
-                            <span class="input-group-btn">
-                            <!-- preview-clear button -->
-                            <button type="button" class="btn btn-default preview-clear" style="display:none;">
-                                <span class="glyphicon glyphicon-remove"></span> Annuler
-                            </button>
-                            <!-- preview-input -->
-                            <div class="btn btn-default preview-input">
-                                <span class="glyphicon glyphicon-folder-open"></span>
-                                <span class="preview-input-title">Image</span>
-                                <input type="file" accept="image/png, image/jpeg, image/gif" name="file-preview" />
+                            <div class="input-group-btn">
+                                <!-- preview-clear button -->
+                                <button type="button" class="btn btn-default preview-clear" style="display:none;">
+                                    <span class="glyphicon glyphicon-remove"></span> Annuler
+                                </button>
+                                <!-- preview-input -->
+                                <div class="btn btn-default preview-input">
+                                    <span class="glyphicon glyphicon-folder-open"></span>
+                                    <span class="preview-input-title">Image</span>
+                                    <input type="file" accept="image/png, image/jpeg, image/gif" name="file-preview" />
+                                </div>
                             </div>
-                            </span>
                         </div>
                         <!-- /#envoyer-une-image -->
 
@@ -138,10 +138,10 @@
                             <button class="[ btn btn-default ]" type="reset">Annuler</button>
                             <div class="btn-group pull-right" data-toggle="buttons">
                                 <label class="btn btn-info active">
-                                    <input type="radio" name="btn-publication" autocomplete="off"> Publication
+                                    <input type="radio" name="btn-publication"> Publication
                                 </label>
                                 <label class="btn btn-info">
-                                    <input type="radio" name="btn-publication" autocomplete="off"> Annonce
+                                    <input type="radio" name="btn-publication"> Annonce
                                 </label>
                             </div>
                         </form>

@@ -504,8 +504,13 @@ button:focus {
     right: 0%;
 }
 
-.chatbox-panel .panel {
+.chatbox-panel > .panel {
     margin-bottom: 0;
+}
+
+.chatbox-panel > .panel > .panel-heading > a {
+    display: block;
+    text-decoration: none;
 }
 
 #chatbox-collapse {
@@ -686,7 +691,12 @@ button:focus {
 /* ---------- club.php ---------- */
 
 .navbar-club > .navbar-collapse > .navbar-right a {
-    margin-top: -6px;
+    margin-top: 10px;
+    margin-right: 10px;
+    padding: 7px 10px;
+    text-align: center;
+    line-height: 20px;
+    color: #FFFFFF;
 }
 
 .club-panel {

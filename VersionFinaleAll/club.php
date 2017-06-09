@@ -20,7 +20,7 @@
             	</form>
 
             	<ul class="nav navbar-nav navbar-right">
-            		<li><a href="#"><button type="button" class="btn btn-info">Créer un club</button></a></li>
+                    <li><a href="#" class="btn btn-info" role="button">Créer un club</a></li>
             	</ul>
             </div>
         </div>

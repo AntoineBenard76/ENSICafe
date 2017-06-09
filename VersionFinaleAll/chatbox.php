@@ -5,11 +5,11 @@
 
         <!-- Chatbox header -->
         <div class="panel">
-            <div class="panel-heading" id="accordion" data-toggle="collapse" href="#chatbox-collapse">
-                <span class="glyphicon glyphicon-comment"></span><span class="chatbox-name"> Chat général</span>
-                <div class="btn-group pull-right" data-toggle="dropup">
-                    <span class="glyphicon glyphicon-chevron-down"></span>
-                </div>
+            <div class="panel-heading" id="accordion" data-toggle="collapse" data-parent="#accordion" data-target="#chatbox-collapse">
+                    <span class="glyphicon glyphicon-comment"></span><span class="chatbox-name"> Chat général</span>
+                    <div class="btn-group pull-right" data-toggle="dropup">
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                    </div>
             </div>
         </div>
         <!-- /#chatbox-header -->
