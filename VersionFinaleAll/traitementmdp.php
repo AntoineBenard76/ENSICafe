@@ -1,6 +1,7 @@
 <?php
+session_start();
     include('php/header-login.php');
-    session_start();
+    
     $bdd = new PDO('mysql:host=127.0.0.1;dbname=espace_membre', 'root', '');
 
 if(isset($_GET['section'])){
@@ -91,16 +92,16 @@ if(isset($_POST['envoyer_code'],$_POST['code'])){
         if( $verif_req==1){
             // Update de confirme
             $up_req=$bdd->prepare('UPDATE recuperation SET confirme=1 WHERE mail=?');
-            $up_req->execute(array($email));
+            $up_req->execute(array($_SESSION['email']));
 /*            $del_req=$bdd->prepare('DELETE FROM recuperation WHERE mail=?');
             $del_req->execute(array($_SESSION['mail']));*/
             // Redirection vers un formulaire pour modifier le mdp
             header("Location:http://127.0.0.1/VersionFinaleAll/mdp.php?section=changemdp");
         }else{
-           $erreur="Code invalide"; 
+           $_SESSION['erreur']="Code invalide"; 
         }
     }else{
-        $erreur="Veuillez indiquer votre code de récupération";
+        $_SESSION['erreur']="Veuillez indiquer votre code de récupération";
     }
 }
 
@@ -108,7 +109,7 @@ if(isset($_POST['envoyer_code'],$_POST['code'])){
 if(isset($_POST['enregistrer'])){
     if(isset($_POST['mdp1'],$_POST['mdp2'])){
         $verif_confirme=$bdd->prepare('SELECT confirme FROM recuperation WHERE mail=?');
-        $verif_confirme->execute(array($_SESSION['mail']));
+        $verif_confirme->execute(array($_SESSION['email']));
         $verif_confirme=$verif_confirme->fetch();
         $verif_confirme=$verif_confirme['confirme'];
         if($verif_confirme==1){
@@ -119,23 +120,23 @@ if(isset($_POST['enregistrer'])){
                     $mdp1=sha1($mdp1);
                     // Changement du mdp
                     $insert_mdp = $bdd->prepare('UPDATE membres SET motdepasse=? WHERE mail=?');
-                    $insert_mdp->execute(array($mdp1,$email));
+                    $insert_mdp->execute(array($mdp1,$_SESSION['email']));
                     // Suppression du mail de la table récupération
                     $del_req=$bdd->prepare('DELETE FROM recuperation WHERE mail=?');
-                    $del_req->execute(array($email));
+                    $del_req->execute(array($_SESSION['email']));
                     // Redirection vers la page de connexion
                     header("Location:http://127.0.0.1/VersionFinaleAll/index.php");
                 }else{
-                    $erreur="Vos mots de passes ne correspondent pas";
+                    $_SESSION['erreur']="Vos mots de passes ne correspondent pas";
                 }
             }else{
-                $erreur="Veuillez remplir tous les champs";
+                $_SESSION['erreur']="Veuillez remplir tous les champs";
             }
         }else{
-            $erreur="Veuillez valider votre mail grâce au code de vérification qui vous a été envoyé par mail";
+            $_SESSION['erreur']="Veuillez valider votre mail grâce au code de vérification qui vous a été envoyé par mail";
         }
     }else{
-        $erreur="Veuillez remplir tous les champs";
+        $_SESSION['erreur']="Veuillez remplir tous les champs";
 }
 }
 
