@@ -7,14 +7,14 @@ if(isset($_GET['section'])){
     $_SESSION['section']="";
 }
 if($_SESSION['section']=='code'){ ?>
-Un code de vérification vous a été envoyé 
+Un code de vérification vous a été envoyé à l'adresse : 
 <form method="post" action="traitementmdp.php">
     <label>Votre code de vérification : </label>
     <input type="text" name="code" placeholder="Code de vérification" />
     <input type="submit" name="envoyer_code" value="Envoyer" />
 </form>
 <?php } elseif($_SESSION['section']=="changemdp"){ ?>
-Nouveau mot de passe
+Nouveau mot de passe pour <?php echo $_SESSION['email']; ?>
 <form method="post" action="traitementmdp.php">
     <input type="password" name="mdp1" placeholder="Nouveau mot de passe" /><br />
     <input type="password" name="mdp2" placeholder="Confirmation mot de passe" />

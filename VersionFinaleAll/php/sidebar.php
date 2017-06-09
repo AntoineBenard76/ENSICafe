@@ -12,8 +12,7 @@
                         <a href="profil.php?id=<?= $_SESSION['id']?>">
                             <img    class="img-circle" 
                                     src="img/avatars/<?= $_SESSION['avatar']?>"
-                                    style="width: 30px; height: 30px;"
-                                    alt="profile_pic"/>
+                                    style="width: 30px; height: 30px;"/>
                             <?= $_SESSION['nom'] ;?>
                             <?= $_SESSION['prenom'];?>
                         </a>
